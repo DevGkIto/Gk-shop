@@ -1,0 +1,20 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="200"     
+  height="200"    
+  viewBox="0 0 100 100"
+>
+  <text
+    x="50%"
+    y="50%"
+    fill="white"
+    font-size="40"
+    font-weight="bold"
+    text-anchor="middle"
+    alignment-baseline="middle"
+    font-family="Bebas Neue, sans-serif"
+    style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));" 
+  >
+    GK
+  </text>
+</svg>
