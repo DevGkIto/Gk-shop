@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 const ProductItem = ({ product }) => {
   return (
@@ -17,7 +18,7 @@ const ProductItem = ({ product }) => {
           <p className="text-xs text-center h-[30px]">{product.productTitle}</p>
           <p className="font-semibold">R${product.price},00</p>
           <button className="px-5 py-2 font-bold text-white text-sm bg-amber-600 rounded-3xl">
-            Comprar
+            <Link href={`/products/${product.id}`}>Comprar</Link>
           </button>
         </div>
       </CardContent>

@@ -1,0 +1,57 @@
+import { db } from "@/lib/prisma";
+import { Card, CardContent } from "@/components/ui/card";
+import Image from "next/image";
+import CustomizationSelector from "@/components/customizationSelector";
+import ProductQuantity from "@/components/productQuantity";
+import ShirtSizes from "@/components/shirtSizes";
+
+interface ProductsPageProps {
+  params: {
+    id: string;
+  };
+}
+
+const ProductPage = async ({ params }: ProductsPageProps) => {
+  const { id } = await params; // Await params to access `id`
+
+  const product = await db.product.findUnique({
+    where: {
+      id,
+    },
+  });
+
+  return (
+    <>
+      <Card className="m-4 bg-gray-100">
+        <CardContent className="p-0">
+          <div className="relative h-[450px]">
+            <Image
+              alt={product?.productTitle || "Product image"}
+              src={product?.imageUrl || "GKlogo.svg"}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="p-4 flex flex-col gap-2 items-start">
+            <h1>{product?.productTitle}</h1>
+            <p className="font-semibold">R${product?.price},00</p>
+            <p className="text-md">Tamanho:</p>
+            <div className="flex gap-2">
+              <ShirtSizes />
+            </div>
+            <p>Personalização:</p>
+            <CustomizationSelector />
+            <div className="flex justify-between w-full">
+              <ProductQuantity />
+              <button className="px-5 font-bold text-white text-sm bg-amber-600 rounded-3xl">
+                Adicionar ao Carrinho
+              </button>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
+    </>
+  );
+};
+
+export default ProductPage;

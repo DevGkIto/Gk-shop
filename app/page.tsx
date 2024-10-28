@@ -1,14 +1,14 @@
-import Header from "./_components/header";
+import Header from "../components/header";
 import Image from "next/image";
 import { db } from "./_lib/prisma";
-import ProductItem from "./_components/productItem";
+import ProductItem from "../components/productItem"
 
 const Home = async () => {
   const products = await db.product.findMany({});
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
       <div className="relative h-[200px] m-4">
         <Image src="/banner.svg" alt="banner" fill className="object-cover" />
       </div>
