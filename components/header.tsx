@@ -1,5 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetTrigger } from "./ui/sheet";
+import { MenuIcon } from "lucide-react";
+import SidebarSheet from "@/components/sidebarSheet";
+import { leagueOptions } from "app/_constants/leagues";
+import SidebarSheetWrapper from "@/components/sidebarSheetWrapper";
 
 const Header = () => {
   return (
@@ -27,11 +33,14 @@ const Header = () => {
         </div>
         <div className="flex gap-3 mr-2">
           <img src="shop-cart.png" alt="shop cart" className="h-[35px]" />
-          <img
-            src="hamburguer-menu.png"
-            alt="menu button"
-            className="h-[35px]"
-          />
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="ghost" size="icon">
+                <MenuIcon style={{ width: "35px", height: "35px" }} />
+              </Button>
+            </SheetTrigger>
+            <SidebarSheetWrapper />
+          </Sheet>
         </div>
       </div>
     </>

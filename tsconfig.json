@@ -24,6 +24,6 @@
       "@/components/*": ["components/*"] // This remains as is
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/sidebarSheet.tsx"],
   "exclude": ["node_modules"]
 }

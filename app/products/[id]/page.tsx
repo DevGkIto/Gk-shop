@@ -12,7 +12,7 @@ interface ProductsPageProps {
 }
 
 const ProductPage = async ({ params }: ProductsPageProps) => {
-  const { id } = await params; // Await params to access `id`
+  const { id } = await params; // Next require this, unless shows a annoying warning
 
   const product = await db.product.findUnique({
     where: {
