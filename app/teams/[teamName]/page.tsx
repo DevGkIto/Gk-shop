@@ -20,8 +20,8 @@ const TeamPage = async ({ params }: TeamPageProps) => {
   return (
     <>
       <div className="p-5">
-        <h1 className=" text-gray-400">{`Início > ${teamProducts[0].league} >${teamName}`}</h1>
-        <div className="py-5">
+        <h1 className=" text-gray-400">{`Início > ${teamProducts[0].league} > ${teamName}`}</h1>
+        <div className="grid grid-cols-2 gap-4 py-4">
           {teamProducts.map((product) => (
             <ProductItem key={product.id} product={product} />
           ))}

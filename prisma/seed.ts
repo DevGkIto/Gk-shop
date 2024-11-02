@@ -72,6 +72,16 @@ async function seedDataBase() {
       "20-21 Roma away",
       "21-22 Juventus home",
       "22-23 Juventus home",
+      "22-23 Manchester City Home",
+      "22-23 Manchester City away",
+      "Manchester United 2024-25 Home Jersey",
+      "Manchester United 1998-99 Home Retro Jersey",
+      "Arsenal 2024-25 Home Jersey",
+      "23-24 Arsenal Home",
+      "23-24 Chelsea home",
+      "22-23 Chelsea training",
+      "22-23 Newcastle home",
+      "23-24 Newcastle Home",
     ];
 
     const teamShirts = [
@@ -140,6 +150,16 @@ async function seedDataBase() {
       "https://drive.google.com/uc?id=1cKTjmyuKl6ZtX-C9q8IH9Uko8gqFyjVB",
       "https://drive.google.com/uc?id=1JpsbL5r6jkwm3iyQCoyw3hFOrDuJGz2Q",
       "https://drive.google.com/uc?id=1pf1_7p0pujOaKKYE44K7xuEQnQK1vbch",
+      "https://drive.google.com/uc?id=1KrdSVFWYY6H5EYYYrws7zi4tK0kMjS3P",
+      "https://drive.google.com/uc?id=1lG8mmNKkPdJQQH8zbdUqm5KMJMRitel8",
+      "https://drive.google.com/uc?id=1LljW7tZDlEH6b0RD470kEd5VQ3i4TXyP",
+      "https://drive.google.com/uc?id=18ZV1h670wCpDrDMKjAbNxeiCd0V2Ve2P",
+      "https://drive.google.com/uc?id=1VTTL_CFRVepTx6TwrHQTqW_Dyt2JtOqV",
+      "https://drive.google.com/uc?id=1pRly4abZWLFddrh5ljsDOQQVFqSD31Ju",
+      "https://drive.google.com/uc?id=1sM2PAMQkJ9yfkrloVcsCTDZiyIEKMqaM",
+      "https://drive.google.com/uc?id=12Waq8nnkFuQx3u_HZAoxPN-jWQss4Ql7",
+      "https://drive.google.com/uc?id=1dPIdiNxSEIqbx8pzr7A8TRJJMGTrexNr",
+      "https://drive.google.com/uc?id=1JgyfcbQ7UiEG4K5V03sSgKAdk3j70e4y",
     ];
 
     const teamNames = [
@@ -208,6 +228,16 @@ async function seedDataBase() {
       "Roma",
       "Juventus",
       "Juventus",
+      "Manchester City",
+      "Manchester City",
+      "Manchester United",
+      "Manchester United",
+      "Arsenal",
+      "Arsenal",
+      "Chelsea",
+      "Chelsea",
+      "Newcastle",
+      "Newcastle",
     ];
 
     const teamLeagues = [
@@ -276,6 +306,16 @@ async function seedDataBase() {
       "Serie A",
       "Serie A",
       "Serie A",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
+      "Premier League",
     ];
 
     for (let i = 0; i < productsTitle.length; i++) {

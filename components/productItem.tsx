@@ -2,7 +2,22 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProductItem = ({ product }) => {
+interface Product {
+  id: string;
+  productTitle: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  league: string;
+  team: string;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+interface ProductItemProps {
+  product: Product;
+}
+const ProductItem: React.FC<ProductItemProps> = ({ product }) => {
   return (
     <Card className="max-w-[200px]">
       <CardContent className="p-0">
@@ -16,7 +31,7 @@ const ProductItem = ({ product }) => {
         </div>
         <div className="flex flex-col items-center gap-1 py-3">
           <p className="text-xs text-center h-[30px]">{product.productTitle}</p>
-          <p className="font-semibold">R${product.price},00</p>
+          <p className="font-semibold">R${product.price.toFixed(2)}</p>
           <button className="px-5 py-2 font-bold text-white text-sm bg-amber-600 rounded-3xl">
             <Link href={`/products/${product.id}`}>Comprar</Link>
           </button>

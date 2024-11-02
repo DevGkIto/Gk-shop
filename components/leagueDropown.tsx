@@ -22,6 +22,8 @@ const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
     setIsOpen((prevState) => !prevState);
   };
 
+  const uniqueTeams = Array.from(new Set(teams.map((product) => product.team)));
+
   return (
     <div className="p-3 relative">
       <div className="flex justify-between items-center">
@@ -34,10 +36,10 @@ const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
       </div>
       {isOpen && (
         <div className="bg-gray-100 absolute left-0 top-full w-full mt-1 shadow-lg z-10">
-          {teams.map((product) => (
-            <Link key={product.id} href={`/teams/${product.team}`} passHref>
+          {uniqueTeams.map((team, index) => (
+            <Link key={index} href={`/teams/${team}`} passHref>
               <div className="pl-6 py-2 text-lg hover:bg-gray-200 cursor-pointer">
-                {product.team}
+                {team}
               </div>
             </Link>
           ))}
