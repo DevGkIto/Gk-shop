@@ -1,10 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetTrigger } from "./ui/sheet";
-import { MenuIcon } from "lucide-react";
-import SidebarSheet from "@/components/sidebarSheet";
-import { leagueOptions } from "app/_constants/leagues";
+import { MenuIcon, ShoppingBag } from "lucide-react";
 import SidebarSheetWrapper from "@/components/sidebarSheetWrapper";
 
 const Header = () => {
@@ -31,8 +28,10 @@ const Header = () => {
             className="pl-10 p-2 rounded-3xl border-none focus:outline-none placeholder:text-sm"
           />
         </div>
-        <div className="flex gap-3 mr-2">
-          <img src="shop-cart.png" alt="shop cart" className="h-[35px]" />
+        <div className="flex gap-3 mr-2 justify-center items-center">
+          <Button variant="ghost" size="icon">
+            <ShoppingBag style={{ width: "30px", height: "30px" }} />
+          </Button>
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

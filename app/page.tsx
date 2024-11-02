@@ -1,7 +1,7 @@
 import Header from "../components/header";
 import Image from "next/image";
 import { db } from "./_lib/prisma";
-import ProductItem from "../components/productItem"
+import ProductItem from "../components/productItem";
 
 const Home = async () => {
   const products = await db.product.findMany({});
@@ -12,8 +12,10 @@ const Home = async () => {
       <div className="relative h-[200px] m-4">
         <Image src="/banner.svg" alt="banner" fill className="object-cover" />
       </div>
-      <p className="px-4 text-xl underline text-amber-300">Mais Vendidos</p>
-      <div className="grid grid-cols-2 gap-y-4 p-4">
+      <p className="w-full flex justify-center font-bold text-xl underline text-amber-300">
+        Populares
+      </p>
+      <div className="grid grid-cols-2 gap-4 p-4">
         {products.map((product) => (
           <ProductItem key={product.id} product={product} />
         ))}
