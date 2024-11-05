@@ -1,4 +1,3 @@
-// components/SidebarSheetWrapper.tsx
 import { db } from "@/lib/prisma";
 import SidebarSheet from "@/components/sidebarSheet";
 
@@ -19,7 +18,7 @@ const SidebarSheetWrapper = async () => {
     }
     acc[product.league].push(product);
     return acc;
-  }, {} as Record<string, { id: string; productTitle: string; team: string }[]>);
+  }, {} as Record<string, { id: string; productTitle: string; team: string; league: string }[]>);
 
   return <SidebarSheet productsByLeague={productsByLeague} />;
 };

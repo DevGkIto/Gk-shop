@@ -19,6 +19,7 @@ const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleToggle = () => {
+    console.log(uniqueTeams);
     setIsOpen((prevState) => !prevState);
   };
 
@@ -36,6 +37,11 @@ const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
       </div>
       {isOpen && (
         <div className="bg-gray-100 absolute left-0 top-full w-full mt-1 shadow-lg z-10">
+          <Link href={`/leagues/${league}`}>
+            <div className="pl-6 py-2 text-lg hover:bg-gray-200 cursor-pointer">
+              Todos da Liga
+            </div>
+          </Link>
           {uniqueTeams.map((team, index) => (
             <Link key={index} href={`/teams/${team}`} passHref>
               <div className="pl-6 py-2 text-lg hover:bg-gray-200 cursor-pointer">

@@ -16,7 +16,7 @@ const ProductPage = async ({ params }: ProductsPageProps) => {
 
   const product = await db.product.findUnique({
     where: {
-      id,
+      id: id,
     },
   });
 
@@ -34,7 +34,7 @@ const ProductPage = async ({ params }: ProductsPageProps) => {
           </div>
           <div className="p-4 flex flex-col gap-2 items-start">
             <h1>{product?.productTitle}</h1>
-            <p className="font-semibold">R${product?.price},00</p>
+            <p className="font-semibold">R${product?.price.toFixed(2)}</p>
             <p className="text-md">Tamanho:</p>
             <div className="flex gap-2">
               <ShirtSizes />
