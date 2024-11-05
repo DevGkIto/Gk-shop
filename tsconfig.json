@@ -21,9 +21,15 @@
     "baseUrl": ".",
     "paths": {
       "@/lib/*": ["app/_lib/*"], // Adjusted path to point to app/_lib
-      "@/components/*": ["components/*"] // This remains as is
+      "@/components/*": ["app/_components/*"] // This remains as is
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/sidebarSheet.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/_components/sidebarSheet.tsx"
+  ],
   "exclude": ["node_modules"]
 }

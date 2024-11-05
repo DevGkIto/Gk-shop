@@ -1,4 +1,4 @@
-import ProductItem from "@/components/productItem";
+import ProductItem from "app/_components/productItem";
 import { db } from "@/lib/prisma";
 
 interface LeaguePageProps {

@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "app/_components/ui/button";
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import { MenuIcon, ShoppingBag } from "lucide-react";
-import SidebarSheetWrapper from "@/components/sidebarSheetWrapper";
+import SidebarSheetWrapper from "app/_components/sidebarSheetWrapper";
 
 const Header = () => {
   return (

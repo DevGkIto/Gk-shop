@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma";
-import SidebarSheet from "@/components/sidebarSheet";
+import SidebarSheet from "app/_components/sidebarSheet";
 
 const SidebarSheetWrapper = async () => {
   const products = await db.product.findMany({

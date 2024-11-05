@@ -1,9 +1,9 @@
 import { db } from "@/lib/prisma";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card, CardContent } from "app/_components/ui/card";
 import Image from "next/image";
-import CustomizationSelector from "@/components/customizationSelector";
-import ProductQuantity from "@/components/productQuantity";
-import ShirtSizes from "@/components/shirtSizes";
+import CustomizationSelector from "app/_components/customizationSelector";
+import ProductQuantity from "app/_components/productQuantity";
+import ShirtSizes from "app/_components/shirtSizes";
 
 interface ProductsPageProps {
   params: {

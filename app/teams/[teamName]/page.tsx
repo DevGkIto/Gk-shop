@@ -1,5 +1,5 @@
 import { db } from "@/lib/prisma";
-import ProductItem from "@/components/productItem";
+import ProductItem from "app/_components/productItem";
 
 interface TeamPageProps {
   params: {

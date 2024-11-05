@@ -1,5 +1,5 @@
 import { SheetContent, SheetHeader } from "./ui/sheet";
-import LeagueDropdown from "@/components/leagueDropown";
+import LeagueDropdown from "app/_components/leagueDropown";
 import { DialogTitle } from "@radix-ui/react-dialog";
 
 interface Product {
