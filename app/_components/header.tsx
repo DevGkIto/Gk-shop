@@ -3,8 +3,10 @@ import { Button } from "app/_components/ui/button";
 import { Sheet, SheetTrigger } from "./ui/sheet";
 import { MenuIcon, ShoppingBag } from "lucide-react";
 import SidebarSheetWrapper from "app/_components/sidebarSheetWrapper";
+import { auth } from "@clerk/nextjs/server";
 
-const Header = () => {
+const Header = async () => {
+  const { userId } = await auth();
   return (
     <>
       <div className="bg-[#331D1D] flex justify-center">
@@ -29,9 +31,11 @@ const Header = () => {
           />
         </div>
         <div className="flex gap-3 mr-2 justify-center items-center">
-          <Button variant="ghost" size="icon">
-            <ShoppingBag style={{ width: "30px", height: "30px" }} />
-          </Button>
+          {userId && (
+            <Button variant="ghost" size="icon">
+              <ShoppingBag style={{ width: "30px", height: "30px" }} />
+            </Button>
+          )}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">

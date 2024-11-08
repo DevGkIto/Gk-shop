@@ -6,15 +6,15 @@ function CustomizationSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Sem personalização");
 
-  const options = ["Sem personalização", "Com personalização"];
+  const options : string[] = ["Sem personalização", "Com personalização"];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option) => {
+  const handleOptionClick = (option : string) => {
     setSelectedOption(option);
-    setIsOpen(false); // Close the dropdown after selection
+    setIsOpen(false);
   };
 
   return (

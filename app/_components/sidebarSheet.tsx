@@ -1,6 +1,10 @@
 import { SheetContent, SheetHeader } from "./ui/sheet";
 import LeagueDropdown from "app/_components/leagueDropown";
 import { DialogTitle } from "@radix-ui/react-dialog";
+import { CircleUserRound } from "lucide-react";
+import { Button } from "./ui/button";
+import { auth } from "@clerk/nextjs/server";
+import { SignInButton, UserButton } from "@clerk/nextjs";
 
 interface Product {
   id: string;
@@ -12,7 +16,10 @@ interface SidebarSheetProps {
   productsByLeague: Record<string, Product[]>;
 }
 
-const SidebarSheet: React.FC<SidebarSheetProps> = ({ productsByLeague }) => {
+const SidebarSheet: React.FC<SidebarSheetProps> = async ({
+  productsByLeague,
+}) => {
+  const { userId } = await auth();
   return (
     <SheetContent className="p-0">
       <SheetHeader className="py-6">
@@ -23,6 +30,23 @@ const SidebarSheet: React.FC<SidebarSheetProps> = ({ productsByLeague }) => {
         {Object.entries(productsByLeague).map(([league, teams]) => (
           <LeagueDropdown key={league} league={league} teams={teams} />
         ))}
+        {userId ? (
+          <div className="absolute bottom-0 p-4 w-full bg-gray-200 flex justify-center">
+            <UserButton showName />
+          </div>
+        ) : (
+          <SignInButton>
+            <Button
+              className="absolute bottom-0 flex items-center w-full py-7"
+              variant="outline"
+            >
+              <CircleUserRound style={{ width: "25px", height: "25px" }} />
+              <h2 className="font-semibold">
+                Criar uma conta | Iniciar sessão
+              </h2>
+            </Button>
+          </SignInButton>
+        )}
       </div>
     </SheetContent>
   );
