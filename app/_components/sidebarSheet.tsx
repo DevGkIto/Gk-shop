@@ -4,7 +4,7 @@ import { DialogTitle } from "@radix-ui/react-dialog";
 import { CircleUserRound, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { auth } from "@clerk/nextjs/server";
-import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import { SignInButton } from "@clerk/nextjs";
 import CurrentUserCustom from "./CurrentUserCustom";
 import SignOutCustom from "./SignOutCustom";
 
