@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./_components/header";
 import { ClerkProvider } from "@clerk/nextjs";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Gk app",
@@ -23,6 +24,7 @@ export default function RootLayout({
           </ClerkProvider>
         </div>
         {/* <Footer /> */}
+        <Toaster />
       </body>
     </html>
   );
