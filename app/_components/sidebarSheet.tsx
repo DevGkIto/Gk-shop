@@ -1,10 +1,12 @@
 import { SheetContent, SheetHeader } from "./ui/sheet";
 import LeagueDropdown from "app/_components/leagueDropown";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { CircleUserRound } from "lucide-react";
+import { CircleUserRound, LogOut } from "lucide-react";
 import { Button } from "./ui/button";
 import { auth } from "@clerk/nextjs/server";
-import { SignInButton, UserButton } from "@clerk/nextjs";
+import { SignInButton, SignOutButton } from "@clerk/nextjs";
+import CurrentUserCustom from "./CurrentUserCustom";
+import SignOutCustom from "./SignOutCustom";
 
 interface Product {
   id: string;
@@ -31,8 +33,9 @@ const SidebarSheet: React.FC<SidebarSheetProps> = async ({
           <LeagueDropdown key={league} league={league} teams={teams} />
         ))}
         {userId ? (
-          <div className="absolute bottom-0 p-4 w-full bg-gray-200 flex justify-center">
-            <UserButton showName />
+          <div className="absolute bottom-0 p-4 w-full flex justify-between">
+            <CurrentUserCustom />
+            <SignOutCustom />
           </div>
         ) : (
           <SignInButton>
