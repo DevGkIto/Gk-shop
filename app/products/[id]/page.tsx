@@ -1,5 +1,6 @@
 import { db } from "@/lib/prisma";
 import ProductDetails from "@/components/productDetails";
+import { auth, currentUser } from "@clerk/nextjs/server";
 
 interface ProductsPageProps {
   params: {
@@ -9,6 +10,8 @@ interface ProductsPageProps {
 
 const ProductPage = async ({ params }: ProductsPageProps) => {
   const { id } = await params; // Next require this, unless shows a annoying warning
+
+  const user = await currentUser();
 
   const product = await db.product.findUnique({
     where: {
@@ -23,9 +26,10 @@ const ProductPage = async ({ params }: ProductsPageProps) => {
   return (
     <>
       <h1 className=" text-gray-400 p-4">{`Início > ${product?.league} > ${product?.team}`}</h1>
-      <div className="px-4">
-        <ProductDetails product={product} />
+      <div className="px-4 pb-4">
+        <ProductDetails product={product} userId={user?.id} />
       </div>
+
       {/* <Card className="px-4 bg-gray-100">
         <CardContent className="p-0">
           <div className="relative h-[450px]">

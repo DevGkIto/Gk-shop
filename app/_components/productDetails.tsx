@@ -1,10 +1,14 @@
 "use client";
 
+import { addToCart } from "app/_actions/add-to-cart";
+import useProductStore from "./_stores/useProductStore";
 import CustomizationSelector from "./customizationSelector";
 import ProductQuantity from "./productQuantity";
 import ShirtSizes from "./shirtSizes";
+import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
+import { toast } from "sonner";
 
 interface ProductProps {
   product: {
@@ -18,9 +22,26 @@ interface ProductProps {
     createdAt: Date;
     updatedAt: Date;
   };
+  userId: string | undefined;
 }
+const ProductDetails = ({ product, userId }: ProductProps) => {
+  const { shirtSize, productQuantity, customDescription } = useProductStore();
 
-const ProductDetails = ({ product }: ProductProps) => {
+  const handleAddToCart = async () => {
+    try {
+      await addToCart({
+        userId,
+        productId: product.id,
+        shirtSize,
+        customDescription,
+        productQuantity,
+      });
+      toast.success("Adicionado ao carrinho com sucesso!");
+    } catch (error) {
+      console.error("Failed to add to cart:", error);
+      toast.error("Failed to add product to cart. Please try again.");
+    }
+  };
   return (
     <>
       <Card className="bg-gray-100">
@@ -42,11 +63,17 @@ const ProductDetails = ({ product }: ProductProps) => {
             </div>
             <p>Personalização:</p>
             <CustomizationSelector />
-            <div className="flex justify-between w-full">
+            <div className="flex justify-between w-full items-center">
               <ProductQuantity />
-              <button className="px-5 font-bold text-white text-sm bg-amber-600 rounded-3xl">
-                Adicionar ao Carrinho
-              </button>
+              {shirtSize !== "" && (
+                <Button
+                  className="bg-amber-600"
+                  size="lg"
+                  onClick={handleAddToCart}
+                >
+                  Adicionar ao Carrinho
+                </Button>
+              )}
             </div>
           </div>
         </CardContent>
