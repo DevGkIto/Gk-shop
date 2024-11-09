@@ -1,9 +1,5 @@
 import { db } from "@/lib/prisma";
-import { Card, CardContent } from "app/_components/ui/card";
-import Image from "next/image";
-import CustomizationSelector from "app/_components/customizationSelector";
-import ProductQuantity from "app/_components/productQuantity";
-import ShirtSizes from "app/_components/shirtSizes";
+import ProductDetails from "@/components/productDetails";
 
 interface ProductsPageProps {
   params: {
@@ -20,9 +16,17 @@ const ProductPage = async ({ params }: ProductsPageProps) => {
     },
   });
 
+  if (!product) {
+    return <p className="p-4">Product not found</p>;
+  }
+
   return (
     <>
-      <Card className="m-4 bg-gray-100">
+      <h1 className=" text-gray-400 p-4">{`Início > ${product?.league} > ${product?.team}`}</h1>
+      <div className="px-4">
+        <ProductDetails product={product} />
+      </div>
+      {/* <Card className="px-4 bg-gray-100">
         <CardContent className="p-0">
           <div className="relative h-[450px]">
             <Image
@@ -49,7 +53,7 @@ const ProductPage = async ({ params }: ProductsPageProps) => {
             </div>
           </div>
         </CardContent>
-      </Card>
+      </Card> */}
     </>
   );
 };

@@ -1,18 +1,27 @@
 "use client";
 
 import React, { useState } from "react";
+import useProductStore from "./_stores/useProductStore";
 
 function CustomizationSelector() {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("Sem personalização");
+  const { customDescription, setCustomDescription } = useProductStore();
+  const [inputText, setInputText] = useState(customDescription);
 
-  const options : string[] = ["Sem personalização", "Com personalização"];
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newText = e.target.value;
+    setInputText(newText);
+    setCustomDescription(newText);
+  };
+
+  const options: string[] = ["Sem personalização", "Com personalização"];
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = (option : string) => {
+  const handleOptionClick = (option: string) => {
     setSelectedOption(option);
     setIsOpen(false);
   };
@@ -46,6 +55,7 @@ function CustomizationSelector() {
               type="text"
               placeholder="Descreva como quer"
               className="w-full py-2 rounded-sm mt-2 focus:outline-none placeholder:px-4"
+              onChange={handleInputChange}
             />
           </>
         )}

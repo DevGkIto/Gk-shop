@@ -2,12 +2,16 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faMinus } from "@fortawesome/free-solid-svg-icons";
+import useProductStore from "./_stores/useProductStore";
 
 const ProductQuantity = () => {
-  const [quantity, setQuantity] = useState(1);
+  const { productQuantity, setProductQuantity } = useProductStore();
+  const [quantity, setQuantity] = useState(productQuantity);
 
   const quantityAdd = () => {
-    setQuantity((prevQuantity) => prevQuantity + 1);
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+    setProductQuantity(newQuantity);
   };
 
   const quantityRemove = () => {
