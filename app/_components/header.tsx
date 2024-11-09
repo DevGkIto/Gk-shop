@@ -18,6 +18,14 @@ const Header = async () => {
       },
     });
   }
+
+  const order = await db.order.findFirst({
+    select: {
+      id: true,
+    },
+  });
+
+  const orderId = order ? order.id : null;
   return (
     <>
       <div className="bg-[#331D1D] flex justify-center">
@@ -42,10 +50,12 @@ const Header = async () => {
           />
         </div>
         <div className="flex gap-3 mr-2 justify-center items-center">
-          {user && (
-            <Button variant="ghost" size="icon">
-              <ShoppingBag style={{ width: "30px", height: "30px" }} />
-            </Button>
+          {user && orderId && (
+            <Link href={`cart/${orderId}`}>
+              <Button variant="ghost" size="icon">
+                <ShoppingBag style={{ width: "30px", height: "30px" }} />
+              </Button>
+            </Link>
           )}
           <Sheet>
             <SheetTrigger asChild>
