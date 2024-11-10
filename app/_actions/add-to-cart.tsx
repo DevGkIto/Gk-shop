@@ -66,7 +66,7 @@ export async function addToCart({
       console.log("No existing order found, creating a new one");
       order = await db.order.create({
         data: {
-          userId: userId,
+          userId: userId!,
           totalPrice: 0,
           items: {
             create: {
