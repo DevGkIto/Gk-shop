@@ -5,8 +5,8 @@ import { CircleUserRound } from "lucide-react";
 import { Button } from "./ui/button";
 import { auth } from "@clerk/nextjs/server";
 import { SignInButton } from "@clerk/nextjs";
-import CurrentUserCustom from "./currentUserCustom";
-import SignOutCustom from "./signOutCustom";
+import CurrentUserCustom from "./CurrentUserCustom";
+import SignOutCustom from "./SignOutCustom";
 
 interface Product {
   id: string;

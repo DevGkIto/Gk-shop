@@ -2,7 +2,6 @@ import CartItem from "@/components/cartItem";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
 
-
 const CartPage = async ({ params }: any) => {
   const { id } = await params;
   const order = await db.order.findUnique({
