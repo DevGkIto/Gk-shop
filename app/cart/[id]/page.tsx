@@ -1,15 +1,9 @@
-/* eslint-disable */
 import CartItem from "@/components/cartItem";
 import { Button } from "@/components/ui/button";
 import { db } from "@/lib/prisma";
 
-interface CartPageParams {
-  params: {
-    id: string;
-  };
-}
 
-const CartPage = async ({ params }: CartPageParams) => {
+const CartPage = async ({ params }: any) => {
   const { id } = await params;
   const order = await db.order.findUnique({
     where: {
@@ -31,6 +25,9 @@ const CartPage = async ({ params }: CartPageParams) => {
           id: item.productId,
         },
       });
+      if (!product) {
+        return { ...item, product: null };
+      }
 
       return { ...item, product };
     })

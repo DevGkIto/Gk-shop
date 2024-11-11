@@ -1,13 +1,9 @@
 import { db } from "@/lib/prisma";
 import ProductItem from "app/_components/productItem";
 
-interface TeamPageParams {
-  params: {
-    teamName: string;
-  };
-}
 
-const TeamPage = async ({ params }: TeamPageParams) => {
+
+const TeamPage = async ({ params }: any) => {
   let { teamName } = await params; // Next require this, unless shows a annoying warning
   teamName = decodeURIComponent(teamName);
 

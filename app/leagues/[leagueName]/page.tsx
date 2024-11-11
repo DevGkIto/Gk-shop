@@ -1,13 +1,8 @@
 import ProductItem from "app/_components/productItem";
 import { db } from "@/lib/prisma";
 
-interface LeaguePageProps {
-  params: {
-    leagueName: string;
-  };
-}
 
-const LeaguePage = async ({ params }: LeaguePageProps) => {
+const LeaguePage = async ({ params }: any) => {
   let { leagueName } = await params;
   leagueName = decodeURIComponent(leagueName);
 

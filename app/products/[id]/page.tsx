@@ -2,13 +2,9 @@ import { db } from "@/lib/prisma";
 import ProductDetails from "@/components/productDetails";
 import { currentUser } from "@clerk/nextjs/server";
 
-interface ProductsPageParams {
-  params: {
-    id: string;
-  };
-}
 
-const ProductPage = async ({ params }: ProductsPageParams) => {
+
+const ProductPage = async ({ params }: any) => {
   const { id } = await params; // Next require this, unless shows a annoying warning
 
   const user = await currentUser();

@@ -1,13 +1,7 @@
 import ProductItem from "@/components/productItem";
 import { db } from "@/lib/prisma";
 
-interface SearchParams {
-  searchParams: {
-    title: string;
-  };
-}
-
-const ProductPages = async ({ searchParams }: SearchParams) => {
+const ProductPages = async ({ searchParams }: any) => {
   const searchParam = await searchParams;
   const products = await db.product.findMany({
     where: {

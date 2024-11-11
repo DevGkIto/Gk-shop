@@ -20,7 +20,7 @@ interface CartItemProps {
       productTitle: string;
       imageUrl: string;
       price: number;
-    };
+    } | null;
   };
 }
 
@@ -46,7 +46,7 @@ const CartItem = ({ item }: CartItemProps) => {
         />
       </div>
       <div className="flex flex-col gap-3 w-[70%]">
-        <div className="font-semibold">{product.productTitle}</div>
+        <div className="font-semibold">{product?.productTitle}</div>
         <div className="flex text-sm items-center justify-between">
           <div>Quantidade: {item.quantity}</div>
           <div>Tamanho: {item.size}</div>
