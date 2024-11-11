@@ -67,6 +67,7 @@ function CustomizationSelector() {
             {options.map((option) => (
               <button
                 key={option}
+                value={inputText}
                 onClick={() => handleOptionClick(option)}
                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
               >

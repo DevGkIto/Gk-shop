@@ -1,7 +1,7 @@
 import { SheetContent, SheetHeader } from "./ui/sheet";
 import LeagueDropdown from "app/_components/leagueDropown";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { CircleUserRound, LogOut } from "lucide-react";
+import { CircleUserRound } from "lucide-react";
 import { Button } from "./ui/button";
 import { auth } from "@clerk/nextjs/server";
 import { SignInButton } from "@clerk/nextjs";

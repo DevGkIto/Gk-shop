@@ -31,7 +31,7 @@ const ProductPages = async ({ searchParams }: SearchParams) => {
     <div>
       <div className="p-4">
         <h1 className="text-gray-400">
-          Resultados para: "{searchParam.title}"
+          Resultados para: &quot;{searchParam.title}&quot;
         </h1>
         <div className="grid grid-cols-2 gap-4 py-4">
           {products.map((product) => (

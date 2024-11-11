@@ -1,7 +1,3 @@
-interface LeagueOption {
-  league: string;
-}
-
 export const leagueoptions = [
   {
     league: "Brasileirão Série A",
