@@ -5,6 +5,7 @@ import { MenuIcon, ShoppingBag } from "lucide-react";
 import SidebarSheetWrapper from "app/_components/sidebarSheetWrapper";
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
+import Search from "./search";
 
 const Header = async () => {
   const user = await currentUser();
@@ -40,14 +41,7 @@ const Header = async () => {
           </Link>
         </div>
         <div className="relative">
-          <button className="absolute left-3 top-1/2 transform -translate-y-1/2">
-            <img src="/search.png" alt="Search" className="h-[20px] w-[20px]" />
-          </button>
-          <input
-            type="text"
-            placeholder="O que você está buscando?"
-            className="pl-10 p-2 rounded-3xl border-none focus:outline-none placeholder:text-sm"
-          />
+          <Search />
         </div>
         <div className="flex gap-3 mr-2 justify-center items-center">
           {user && orderId && (
