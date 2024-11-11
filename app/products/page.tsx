@@ -11,10 +11,20 @@ const ProductPages = async ({ searchParams }: SearchParams) => {
   const searchParam = await searchParams;
   const products = await db.product.findMany({
     where: {
-      productTitle: {
-        contains: searchParam.title,
-        mode: "insensitive",
-      },
+      OR: [
+        {
+          productTitle: {
+            contains: searchParam.title,
+            mode: "insensitive",
+          },
+        },
+        {
+          team: {
+            contains: searchParam.title,
+            mode: "insensitive",
+          },
+        },
+      ],
     },
   });
   return (
