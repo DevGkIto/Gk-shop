@@ -6,6 +6,7 @@ import SidebarSheetWrapper from "app/_components/sidebarSheetWrapper";
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
 import Search from "./search";
+import Image from "next/image";
 
 const Header = async () => {
   const user = await currentUser();
@@ -21,6 +22,9 @@ const Header = async () => {
   }
 
   const order = await db.order.findFirst({
+    where: {
+      userId: user?.id,
+    },
     select: {
       id: true,
     },
@@ -29,15 +33,10 @@ const Header = async () => {
   const orderId = order ? order.id : null;
   return (
     <>
-      <div className="bg-[#331D1D] flex justify-center">
-        <p className="text-white font-semibold">
-          Promoção de 25% acaba em 23:59:59
-        </p>
-      </div>
       <div className="bg-[#9F3434] flex h-[71px] items-center justify-between">
         <div>
           <Link href="/">
-            <img src="/GKlogo.svg" className="w-[70px] h-[60px]" />
+            <Image alt="GK" src="/GKlogo.svg" width={60} height={60} />
           </Link>
         </div>
         <div className="relative">
@@ -46,7 +45,7 @@ const Header = async () => {
         <div className="flex gap-3 mr-2 justify-center items-center">
           {user && orderId && (
             <Link href={`cart/${orderId}`}>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" asChild>
                 <ShoppingBag style={{ width: "30px", height: "30px" }} />
               </Button>
             </Link>
