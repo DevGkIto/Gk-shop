@@ -1,8 +1,8 @@
-import { currentUser } from "@clerk/nextjs/server";
+import { useUser } from "@clerk/nextjs";
 import { Avatar, AvatarImage } from "./ui/avatar";
 
-const CurrentUserCustom = async () => {
-  const user = await currentUser();
+const CurrentUserCustom = () => {
+  const { user } = useUser();
   return (
     <div className="flex items-center space-x-2">
       <Avatar className="w-10 h-10">

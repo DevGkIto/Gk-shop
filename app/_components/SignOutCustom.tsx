@@ -11,7 +11,6 @@ const SignOutWithRevalidation = () => {
 
   const handleSignOut = async () => {
     await signOut();
-
     router.refresh();
   };
 
