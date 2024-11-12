@@ -5,7 +5,7 @@ import { LogOut } from "lucide-react";
 import { useClerk } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 
-const SignOutWithRevalidation = () => {
+const SignOutCustom = () => {
   const { signOut } = useClerk();
   const router = useRouter();
 
@@ -21,4 +21,4 @@ const SignOutWithRevalidation = () => {
   );
 };
 
-export default SignOutWithRevalidation;
+export default SignOutCustom;

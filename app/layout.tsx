@@ -4,6 +4,7 @@ import Header from "./_components/header";
 import { ClerkProvider } from "@clerk/nextjs";
 import { Toaster } from "sonner";
 import PromotionTime from "./_components/promotionTime";
+import Footer from "./_components/footer";
 
 export const metadata: Metadata = {
   title: "Gk app",
@@ -18,13 +19,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex-1">
+        <div className="flex-1 min-h-screen">
           <PromotionTime />
           <ClerkProvider>
             <Header />
             {children}
           </ClerkProvider>
         </div>
+        <Footer />
         <Toaster />
       </body>
     </html>

@@ -1,8 +1,10 @@
+"use client";
 import { useUser } from "@clerk/nextjs";
 import { Avatar, AvatarImage } from "./ui/avatar";
 
 const CurrentUserCustom = () => {
   const { user } = useUser();
+
   return (
     <div className="flex items-center space-x-2">
       <Avatar className="w-10 h-10">
