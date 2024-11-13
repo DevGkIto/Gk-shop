@@ -22,7 +22,7 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = async ({ product }) => {
   const user = await currentUser();
   return (
-    <Card className="max-w-[200px]">
+    <Card className="max-w-[200px] overflow-hidden">
       <CardContent className="p-0">
         <div className="relative h-[200px] w-[200px] border-b-2 border-b-amber-300">
           <Image
