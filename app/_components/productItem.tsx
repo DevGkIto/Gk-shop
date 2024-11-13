@@ -40,9 +40,6 @@ const ProductItem: React.FC<ProductItemProps> = async ({ product }) => {
                   {product.productTitle}
                 </p>
                 <p className="font-semibold">R${product.price.toFixed(2)}</p>
-                <Button className="px-5 py-2 font-bold text-white text-sm bg-amber-600 rounded-3xl">
-                  Comprar
-                </Button>
               </div>
             </CardContent>
           </Card>
