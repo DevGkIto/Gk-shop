@@ -4,7 +4,7 @@ Welcome to the **GK Shop** – a football shirt e-commerce application currently
 
 ## Access the Application
 
-You can check out the live application [here](https://gkshop-xi.vercel.app).
+You can check out the live application [here](https://gkshop-sage.vercel.app).
 
 ---
 
