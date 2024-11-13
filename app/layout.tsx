@@ -20,10 +20,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="flex-1 min-h-screen">
-          <PromotionTime />
           <ClerkProvider>
+            <PromotionTime />
             <Header />
-            {children}
+            <div className="flex h-full flex-col overflow-hidden">
+              {children}
+            </div>
           </ClerkProvider>
         </div>
         <Footer />
