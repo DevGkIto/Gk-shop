@@ -22,29 +22,54 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = async ({ product }) => {
   const user = await currentUser();
   return (
-    <Card className="max-w-[200px] overflow-hidden flex flex-col justify-between">
-      <CardContent className="p-0 flex flex-col justify-between h-full">
-        <div className="relative h-[200px] w-full border-b-2 border-b-amber-300 overflow-hidden">
-          <Image
-            alt={product.productTitle}
-            src={product.imageUrl}
-            fill
-            className="object-cover rounded-t-xl"
-          />
-        </div>
-        <div className="flex flex-col items-center gap-1 py-3">
-          <p className="text-xs text-center h-[30px]">{product.productTitle}</p>
-          <p className="font-semibold">R${product.price.toFixed(2)}</p>
-          {user && (
-            <Link href={`/products/${product.id}`}>
-              <Button className="px-5 py-2 font-bold text-white text-sm bg-amber-600 rounded-3xl">
-                Comprar
-              </Button>
-            </Link>
-          )}
-        </div>
-      </CardContent>
-    </Card>
+    <>
+      {user ? (
+        <Link href={`/products/${product.id}`}>
+          <Card className="max-w-[200px] overflow-hidden flex flex-col justify-between">
+            <CardContent className="p-0 flex flex-col justify-between h-full">
+              <div className="relative h-[200px] w-full border-b-2 border-b-amber-300 overflow-hidden">
+                <Image
+                  alt={product.productTitle}
+                  src={product.imageUrl}
+                  fill
+                  className="object-cover rounded-t-xl"
+                />
+              </div>
+              <div className="flex flex-col items-center gap-1 py-3">
+                <p className="text-xs text-center h-[30px]">
+                  {product.productTitle}
+                </p>
+                <p className="font-semibold">R${product.price.toFixed(2)}</p>
+                <Button className="px-5 py-2 font-bold text-white text-sm bg-amber-600 rounded-3xl">
+                  Comprar
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+      ) : (
+        <Link href="/login">
+          <Card className="max-w-[200px] overflow-hidden flex flex-col justify-between">
+            <CardContent className="p-0 flex flex-col justify-between h-full">
+              <div className="relative h-[200px] w-full border-b-2 border-b-amber-300 overflow-hidden">
+                <Image
+                  alt={product.productTitle}
+                  src={product.imageUrl}
+                  fill
+                  className="object-cover rounded-t-xl"
+                />
+              </div>
+              <div className="flex flex-col items-center gap-1 py-3">
+                <p className="text-xs text-center h-[30px]">
+                  {product.productTitle}
+                </p>
+                <p className="font-semibold">R${product.price.toFixed(2)}</p>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+      )}
+    </>
   );
 };
 

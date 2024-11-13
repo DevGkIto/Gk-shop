@@ -52,10 +52,9 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
       });
 
       toast.success("Adicionado ao carrinho com sucesso!");
-      // Reset state after adding to cart (optional)
-      setProductQuantity(1); // Reset product quantity
-      setShirtSize(""); // Reset shirt size
-      setCustomDescription(""); // Reset customization description
+      setProductQuantity(1);
+      setShirtSize("");
+      setCustomDescription("");
       router.push("/");
     } catch (error) {
       console.error("Failed to add to cart:", error);
@@ -83,11 +82,11 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
             </div>
             <p>Personalização:</p>
             <CustomizationSelector />
-            <div className="flex justify-between w-full items-center">
+            <div className="flex justify-between w-full items-center gap-4">
               <ProductQuantity />
               {shirtSize !== "" && (
                 <Button
-                  className="bg-amber-600"
+                  className="bg-amber-600 w-full max-w-xs"
                   size="lg"
                   onClick={handleAddToCart}
                 >
