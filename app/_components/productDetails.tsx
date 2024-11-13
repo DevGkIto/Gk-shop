@@ -9,6 +9,7 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import Image from "next/image";
 import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 interface ProductProps {
   product: {
@@ -25,7 +26,20 @@ interface ProductProps {
   userId: string | undefined;
 }
 const ProductDetails = ({ product, userId }: ProductProps) => {
-  const { shirtSize, productQuantity, customDescription } = useProductStore();
+  const shirtSize = useProductStore((state) => state.shirtSize);
+  const productQuantity = useProductStore((state) => state.productQuantity);
+  const customDescription = useProductStore((state) => state.customDescription);
+
+  const setProductQuantity = useProductStore(
+    (state) => state.setProductQuantity
+  );
+  const setShirtSize = useProductStore((state) => state.setShirtSize);
+  const setCustomDescription = useProductStore(
+    (state) => state.setCustomDescription
+  );
+
+  const router = useRouter();
+  console.log("Attempting to add to cart with quantity:", productQuantity);
 
   const handleAddToCart = async () => {
     try {
@@ -36,7 +50,13 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
         customDescription,
         productQuantity,
       });
+
       toast.success("Adicionado ao carrinho com sucesso!");
+      // Reset state after adding to cart (optional)
+      setProductQuantity(1); // Reset product quantity
+      setShirtSize(""); // Reset shirt size
+      setCustomDescription(""); // Reset customization description
+      router.push("/");
     } catch (error) {
       console.error("Failed to add to cart:", error);
       toast.error("Failed to add product to cart. Please try again.");

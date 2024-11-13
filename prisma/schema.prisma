@@ -86,5 +86,5 @@ model OrderItem {
   order             Order    @relation(fields: [orderId], references: [id])
   product           Product  @relation(fields: [productId], references: [id])
 
-  @@id([orderId, productId])
+  @@id([orderId, productId, size])
 }

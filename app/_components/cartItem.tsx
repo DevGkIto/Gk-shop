@@ -27,7 +27,7 @@ interface CartItemProps {
 const CartItem = ({ item }: CartItemProps) => {
   const handleRemoveItem = async () => {
     try {
-      await removeItemFromCart(item.orderId, item.productId);
+      await removeItemFromCart(item.orderId, item.productId, item.size);
       toast.success("Item removido com sucesso!");
     } catch (error) {
       console.error("Failed to remove item from cart:", error);

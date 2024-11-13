@@ -32,9 +32,10 @@ export async function addToCart({
       if (existingOrderItem) {
         await db.orderItem.update({
           where: {
-            orderId_productId: {
+            orderId_productId_size: {
               orderId: order.id,
               productId: productId,
+              size: shirtSize,
             },
           },
           data: { quantity: existingOrderItem.quantity + productQuantity },

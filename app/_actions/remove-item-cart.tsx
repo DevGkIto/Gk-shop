@@ -5,14 +5,16 @@ import { revalidatePath } from "next/cache";
 
 export const removeItemFromCart = async (
   orderId: string,
-  productId: string
+  productId: string,
+  size: string
 ) => {
   try {
     const deletedItem = await db.orderItem.delete({
       where: {
-        orderId_productId: {
+        orderId_productId_size: {
           orderId: orderId,
           productId: productId,
+          size: size,
         },
       },
     });

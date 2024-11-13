@@ -20,6 +20,7 @@ const Header = async () => {
       },
     });
   }
+  console.log(user?.id);
 
   const order = await db.order.findFirst({
     where: {

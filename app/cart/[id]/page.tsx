@@ -37,7 +37,7 @@ const CartPage = async ({ params }: any) => {
       <h2 className="font-bold p-4 text-lg"> Meu Carrinho </h2>
       <div className="flex flex-col gap-2 border-2 mx-4 rounded-md pb-2">
         {itemsWithProduct.map((item) => (
-          <CartItem key={item.productId} item={item} />
+          <CartItem key={`${item.productId}-${item.size}`} item={item} />
         ))}
         <Button variant="outline" className="text-gray-700 hover:text-gray-700">
           Finalizar Compra
