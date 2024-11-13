@@ -1,6 +1,7 @@
 "use server";
 
 import { db } from "@/lib/prisma";
+import { revalidatePath } from "next/cache";
 
 export const removeItemFromCart = async (
   orderId: string,
@@ -15,7 +16,7 @@ export const removeItemFromCart = async (
         },
       },
     });
-
+    revalidatePath("/");
     return deletedItem;
   } catch (error) {
     console.error("Error removing item from cart:", error);
