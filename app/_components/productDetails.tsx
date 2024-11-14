@@ -82,11 +82,11 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
             </div>
             <p>Personalização:</p>
             <CustomizationSelector />
-            <div className="flex items-center gap-4 w-full">
+            <div className="flex items-center justify-between gap-4 w-full">
               <ProductQuantity />
               {shirtSize !== "" && (
                 <Button
-                  className="bg-amber-600 text-white w-full py-2 rounded-lg"
+                  className="bg-amber-600 text-white w-[170px] py-2 rounded-lg"
                   size="lg"
                   onClick={handleAddToCart}
                 >
