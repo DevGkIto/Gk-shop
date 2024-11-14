@@ -19,7 +19,7 @@ const ProductQuantity = () => {
   };
 
   return (
-    <div className="flex px-2 py-2 gap-5 items-center justify-center bg-gray-300 rounded-lg">
+    <div className="flex px-1 py-2 gap-3 items-center justify-center bg-gray-300 rounded-lg">
       <button
         className="rounded-full w-8 h-8 flex items-center justify-center focus:outline-none"
         onClick={quantityAdd}

@@ -54,7 +54,7 @@ function CustomizationSelector() {
             <input
               type="text"
               placeholder="Descreva como quer"
-              className="w-full py-2 rounded-sm mt-2 focus:outline-none placeholder:px-4"
+              className="w-full py-2 rounded-sm mt-2 focus:outline-none px-4"
               onChange={handleInputChange}
             />
           </>
