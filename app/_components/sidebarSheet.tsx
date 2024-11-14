@@ -7,6 +7,7 @@ import { currentUser } from "@clerk/nextjs/server";
 import { SignInButton } from "@clerk/nextjs";
 import CurrentUserCustom from "./currentUserCustom";
 import SignOutCustom from "./signOutCustom";
+import Link from "next/link";
 
 interface Product {
   id: string;
@@ -28,7 +29,9 @@ const SidebarSheet: React.FC<SidebarSheetProps> = async ({
         <DialogTitle className="sr-only">Product Categories</DialogTitle>{" "}
       </SheetHeader>
       <div>
-        <h2 className="p-3 font-bold text-2xl">Início</h2>
+        <Link href="/">
+          <h2 className="p-3 font-bold text-2xl">Início</h2>
+        </Link>
         {Object.entries(productsByLeague).map(([league, teams]) => (
           <LeagueDropdown key={league} league={league} teams={teams} />
         ))}

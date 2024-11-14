@@ -11,6 +11,8 @@ const SidebarSheetWrapper = async () => {
     },
   });
 
+  products.sort((a, b) => a.league.localeCompare(b.league));
+
   // Group products by league
   const productsByLeague = products.reduce((acc, product) => {
     if (!acc[product.league]) {
