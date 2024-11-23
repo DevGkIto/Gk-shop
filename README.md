@@ -1,6 +1,6 @@
 # GK Shop - Football Shirt E-commerce
 
-Welcome to the **GK Shop** – a football shirt e-commerce application currently under development. Built with **Next.js**, **React**, **TypeScript (TSX)**, and **PostgreSQL** for the database, with **Tailwind CSS** for styling.
+Welcome to the **GK Shop** – a Mobile designed football shirt e-commerce application. Built with **Next.js**, **React**, **TypeScript (TSX)**, and **PostgreSQL** for the database, with **Tailwind CSS** for styling.
 
 ## Access the Application
 
