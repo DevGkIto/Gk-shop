@@ -2,7 +2,6 @@ import { currentUser } from "@clerk/nextjs/server";
 import { Card, CardContent } from "app/_components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "./ui/button";
 
 interface Product {
   id: string;

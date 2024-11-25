@@ -20,7 +20,6 @@ const Header = async () => {
       },
     });
   }
-  console.log(user?.id);
 
   const order = await db.order.findFirst({
     where: {
@@ -28,10 +27,15 @@ const Header = async () => {
     },
     select: {
       id: true,
+      items: true,
     },
   });
 
   const orderId = order ? order.id : null;
+
+  const cartQuantity =
+    order?.items.reduce((total, cartItem) => total + cartItem.quantity, 0) || 0;
+
   return (
     <>
       <div className="bg-[#9F3434] flex h-[71px] items-center justify-between">
@@ -47,7 +51,15 @@ const Header = async () => {
           {user && orderId && (
             <Link href={`cart/${orderId}`}>
               <Button variant="ghost" size="icon" asChild>
-                <ShoppingBag style={{ width: "30px", height: "30px" }} />
+                <div className="relative">
+                  <ShoppingBag style={{ width: "30px", height: "30px" }} />
+                  <div
+                    className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4
+                     text-xs rounded-full bg-white px-1"
+                  >
+                    {cartQuantity}
+                  </div>
+                </div>
               </Button>
             </Link>
           )}
