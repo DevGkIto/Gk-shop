@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import useProductStore from "./_stores/useProductStore";
 
 interface Product {
   id: string;
@@ -17,6 +18,8 @@ interface LeagueDropdownProps {
 
 const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
   const [isOpen, setIsOpen] = useState(false);
+
+  const { openSheet, closeSheet } = useProductStore();
 
   const handleToggle = () => {
     console.log(uniqueTeams);
@@ -37,13 +40,13 @@ const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
       </div>
       {isOpen && (
         <div className="bg-gray-100 absolute left-0 top-full w-full mt-1 shadow-lg z-10">
-          <Link href={`/leagues/${league}`}>
+          <Link href={`/leagues/${league}`} onClick={closeSheet}>
             <div className="pl-6 py-2 text-lg hover:bg-gray-200 cursor-pointer">
               Todos da Liga
             </div>
           </Link>
           {uniqueTeams.map((team, index) => (
-            <Link key={index} href={`/teams/${team}`} passHref>
+            <Link key={index} href={`/teams/${team}`} onClick={closeSheet}>
               <div className="pl-6 py-2 text-lg hover:bg-gray-200 cursor-pointer">
                 {team}
               </div>

@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { Button } from "app/_components/ui/button";
-import { Sheet, SheetTrigger } from "./ui/sheet";
-import { MenuIcon, ShoppingBag } from "lucide-react";
+import { ShoppingBag } from "lucide-react";
 import SidebarSheetWrapper from "app/_components/sidebarSheetWrapper";
 import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
@@ -63,14 +62,15 @@ const Header = async () => {
               </Button>
             </Link>
           )}
-          <Sheet>
+          {/* <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon">
                 <MenuIcon style={{ width: "35px", height: "35px" }} />
               </Button>
             </SheetTrigger>
             <SidebarSheetWrapper />
-          </Sheet>
+          </Sheet> */}
+          <SidebarSheetWrapper />
         </div>
       </div>
     </>
