@@ -1,7 +1,12 @@
 import { db } from "@/lib/prisma";
+import { currentUser } from "@clerk/nextjs/server";
 import SidebarSheet from "app/_components/sidebarSheet";
 
 const SidebarSheetWrapper = async () => {
+  const user = await currentUser();
+
+  const serializableUser = user ? { id: user.id } : null;
+
   const products = await db.product.findMany({
     select: {
       id: true,
@@ -22,7 +27,9 @@ const SidebarSheetWrapper = async () => {
     return acc;
   }, {} as Record<string, { id: string; productTitle: string; team: string; league: string }[]>);
 
-  return <SidebarSheet productsByLeague={productsByLeague} />;
+  return (
+    <SidebarSheet productsByLeague={productsByLeague} user={serializableUser} />
+  );
 };
 
 export default SidebarSheetWrapper;
