@@ -19,7 +19,7 @@ interface LeagueDropdownProps {
 const LeagueDropdown: React.FC<LeagueDropdownProps> = ({ league, teams }) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { openSheet, closeSheet } = useProductStore();
+  const { closeSheet } = useProductStore();
 
   const handleToggle = () => {
     console.log(uniqueTeams);

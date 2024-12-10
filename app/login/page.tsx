@@ -29,9 +29,9 @@ const LoginPage = async () => {
               Bem-vindo
             </h1>
             <p className="mb-8 text-white">
-              A Finance AI é uma plataforma de gestão financeira que utiliza IA
-              para monitorar suas movimentações, e oferecer insights
-              personalizados, facilitando o controle do seu orçamento.
+              Bem-vindo à Gk shop, aqui você encontra diversas camisas de
+              futebol do esporte que você ama! Há a opção de filtrar por liga e
+              por time ao cliclar no icone do menu. Espero que goste! S2
             </p>
           </div>
           <SignInButton>

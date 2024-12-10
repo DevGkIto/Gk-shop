@@ -46,7 +46,7 @@ const SidebarSheet: React.FC<SidebarSheetProps> = ({
           <DialogTitle className="sr-only">Product Categories</DialogTitle>{" "}
         </SheetHeader>
         <div>
-          <Link href="/">
+          <Link href="/" onClick={closeSheet}>
             <h2 className="p-3 font-bold text-2xl">Início</h2>
           </Link>
           {Object.entries(productsByLeague).map(([league, teams]) => (
