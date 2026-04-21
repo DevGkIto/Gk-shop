@@ -79,10 +79,22 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border;
+  :root {
+    --background: 240 4.8% 95.9%;
+    --foreground: 240 10% 3.9%;
+
+    body {
+      background-color: #fafafa;
+      background-image:
+        linear-gradient(to right, #f0f0f0 1px, transparent 1px),
+        linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
   }
-  body {
-    @apply bg-background text-foreground;
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M40 40V0H0v40h40zM1 39V1h38v38H1z' fill='none' stroke='%23e4e4e7' stroke-opacity='0.4'/%3E%3C/svg%3E");
   }
 }

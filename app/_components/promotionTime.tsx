@@ -8,8 +8,14 @@ export const getRemainingTime = (): string => {
   nextDay.setHours(24, 0, 0, 0);
 
   const timeDiff = nextDay.getTime() - now.getTime();
-  const hours = String(Math.floor((timeDiff / (1000 * 60 * 60)) % 24)).padStart(2, "0");
-  const minutes = String(Math.floor((timeDiff / (1000 * 60)) % 60)).padStart(2, "0");
+  const hours = String(Math.floor((timeDiff / (1000 * 60 * 60)) % 24)).padStart(
+    2,
+    "0"
+  );
+  const minutes = String(Math.floor((timeDiff / (1000 * 60)) % 60)).padStart(
+    2,
+    "0"
+  );
   const seconds = String(Math.floor((timeDiff / 1000) % 60)).padStart(2, "0");
 
   return `${hours}:${minutes}:${seconds}`;
@@ -38,8 +44,8 @@ const PromotionTime: React.FC = () => {
   }
 
   return (
-    <div className="bg-[#331D1D] flex justify-center">
-      <p className="text-white font-semibold">
+    <div className="flex justify-center bg-black px-4 py-2">
+      <p className="text-center text-sm font-semibold text-white md:text-base">
         Promoção de 25% acaba em {remainingTime}
       </p>
     </div>

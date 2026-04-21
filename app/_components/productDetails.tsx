@@ -25,6 +25,7 @@ interface ProductProps {
   };
   userId: string | undefined;
 }
+
 const ProductDetails = ({ product, userId }: ProductProps) => {
   const shirtSize = useProductStore((state) => state.shirtSize);
   const productQuantity = useProductStore((state) => state.productQuantity);
@@ -39,7 +40,6 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
   );
 
   const router = useRouter();
-  console.log("Attempting to add to cart with quantity:", productQuantity);
 
   const handleAddToCart = async () => {
     try {
@@ -55,49 +55,69 @@ const ProductDetails = ({ product, userId }: ProductProps) => {
       setProductQuantity(1);
       setShirtSize("");
       setCustomDescription("");
-      router.push("/");
     } catch (error) {
       console.error("Failed to add to cart:", error);
-      toast.error("Failed to add product to cart. Please try again.");
+      toast.error("Erro ao adicionar ao carrinho. Tente novamente.");
     }
   };
+
   return (
-    <>
-      <Card className="bg-gray-100">
-        <CardContent className="p-0">
-          <div className="relative h-[450px]">
-            <Image
-              alt={product.productTitle || "Product image"}
-              src={product.imageUrl || "GKlogo.svg"}
-              fill
-              className="object-cover"
-            />
+    <Card className="overflow-hidden border-none bg-white shadow-md">
+      <CardContent className="flex flex-col p-0 lg:flex-row">
+        <div className="relative h-[400px] bg-zinc-50 md:h-[500px] lg:h-[600px] lg:flex-1">
+          <Image
+            alt={product.productTitle || "Product image"}
+            src={product.imageUrl || "/GKlogo.svg"}
+            fill
+            className="object-contain p-6 lg:p-12"
+            priority
+          />
+        </div>
+
+        <div className="flex flex-col gap-8 p-8 lg:flex-1 lg:justify-center lg:px-16">
+          <div className="space-y-2">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-400">
+              {product.team}
+            </p>
+            <h1 className="text-3xl font-black uppercase tracking-tighter text-zinc-900 lg:text-4xl">
+              {product.productTitle}
+            </h1>
+            <p className="text-2xl font-black text-zinc-900">
+              R${product.price.toFixed(2)}
+            </p>
           </div>
-          <div className="p-4 flex flex-col gap-2 items-start">
-            <h1>{product.productTitle}</h1>
-            <p className="font-semibold">R${product.price.toFixed(2)}</p>
-            <p className="text-md">Tamanho:</p>
-            <div className="flex gap-2">
+
+          <div className="space-y-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Tamanho
+            </p>
+            <div className="flex flex-wrap gap-2">
               <ShirtSizes />
             </div>
-            <p>Personalização:</p>
-            <CustomizationSelector />
-            <div className="flex items-center justify-between gap-4 w-full">
-              <ProductQuantity />
-              {shirtSize !== "" && (
-                <Button
-                  className="bg-amber-600 text-white w-[170px] py-2 rounded-lg"
-                  size="lg"
-                  onClick={handleAddToCart}
-                >
-                  Adicionar ao Carrinho
-                </Button>
-              )}
-            </div>
           </div>
-        </CardContent>
-      </Card>
-    </>
+
+          <div className="space-y-4">
+            <p className="text-xs font-bold uppercase tracking-widest text-zinc-500">
+              Personalização
+            </p>
+            <CustomizationSelector />
+          </div>
+
+          <div className="flex w-full flex-col items-center gap-4 pt-6 sm:flex-row">
+            <ProductQuantity />
+            {shirtSize !== "" && (
+              <Button
+                className="w-full rounded-none bg-zinc-900 py-8 text-sm font-bold uppercase tracking-widest text-white transition-all hover:bg-black sm:flex-1"
+                size="lg"
+                onClick={handleAddToCart}
+              >
+                Adicionar ao Carrinho
+              </Button>
+            )}
+          </div>
+        </div>
+      </CardContent>
+    </Card>
   );
 };
 

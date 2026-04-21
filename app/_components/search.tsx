@@ -11,7 +11,7 @@ import { SearchIcon } from "lucide-react";
 
 const formSchema = z.object({
   title: z.string().trim().min(1, {
-    message: "Digite algo para buscar",
+    message: "",
   }),
 });
 
@@ -30,22 +30,32 @@ const Search = () => {
   };
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="flex gap-2">
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="flex w-full items-center gap-2"
+      >
         <FormField
           control={form.control}
           name="title"
           render={({ field }) => (
-            <FormItem className="w-full bg-white rounded-md ">
+            <FormItem className="w-full rounded-md bg-white">
               <FormControl>
-                <Input placeholder="Faça sua busca..." {...field} />
+                <Input
+                  placeholder="Faça sua busca..."
+                  {...field}
+                  className="h-10 md:h-11"
+                />
               </FormControl>
-
               <FormMessage />
             </FormItem>
           )}
         />
-        <Button type="submit" variant="outline">
-          <SearchIcon />
+        <Button
+          type="submit"
+          variant="outline"
+          className="h-10 w-10 shrink-0 bg-white md:h-11 md:w-12"
+        >
+          <SearchIcon className="h-4 w-4 md:h-5 md:w-5" />
         </Button>
       </form>
     </Form>

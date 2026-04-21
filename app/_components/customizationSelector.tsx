@@ -32,7 +32,7 @@ function CustomizationSelector() {
         <button
           type="button"
           onClick={toggleDropdown}
-          className="inline-flex justify-between w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-gray-200 text-sm font-medium text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex w-full justify-between rounded-md border border-gray-300 bg-gray-200 px-4 py-2 text-sm font-medium text-gray-700 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
         >
           {selectedOption}
           <svg
@@ -54,7 +54,7 @@ function CustomizationSelector() {
             <input
               type="text"
               placeholder="Descreva como quer"
-              className="w-full py-2 rounded-sm mt-2 focus:outline-none px-4"
+              className="mt-2 w-full rounded-sm px-4 py-2 focus:outline-none"
               onChange={handleInputChange}
             />
           </>
@@ -69,7 +69,7 @@ function CustomizationSelector() {
                 key={option}
                 value={inputText}
                 onClick={() => handleOptionClick(option)}
-                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 w-full text-left"
+                className="block w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"
               >
                 {option}
               </button>

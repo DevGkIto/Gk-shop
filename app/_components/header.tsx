@@ -37,39 +37,36 @@ const Header = async () => {
 
   return (
     <>
-      <div className="bg-[#9F3434] flex h-[71px] items-center justify-between">
+      {/* Changed bg-[#9F3434] to bg-zinc-900 */}
+      <div className="flex h-[71px] items-center justify-between bg-zinc-900 px-4">
         <div>
           <Link href="/">
             <Image alt="GK" src="/GKlogo.svg" width={60} height={60} />
           </Link>
         </div>
-        <div className="relative">
+
+        <div className="mx-8 flex max-w-[600px] flex-1 justify-center">
           <Search />
         </div>
-        <div className="flex gap-1 mr-2 justify-center items-center">
+
+        <div className="mr-2 flex items-center justify-center gap-1">
           {user && orderId && (
-            <Link href={`cart/${orderId}`}>
+            <Link href={`/cart/${orderId}`}>
               <Button variant="ghost" size="icon" asChild>
                 <div className="relative">
-                  <ShoppingBag style={{ width: "30px", height: "30px" }} />
-                  <div
-                    className="absolute top-0 right-0 transform translate-x-1/4 -translate-y-1/4
-                     text-xs rounded-full bg-white px-1"
-                  >
+                  {/* Added text-white to the icon */}
+                  <ShoppingBag
+                    strokeWidth={1.2}
+                    className="text-white"
+                    style={{ width: "30px", height: "30px" }}
+                  />
+                  <div className="absolute right-0 top-0 -translate-y-1/4 translate-x-1/4 transform rounded-full bg-white px-1.5 py-0.5 text-[10px] font-bold text-black">
                     {cartQuantity}
                   </div>
                 </div>
               </Button>
             </Link>
           )}
-          {/* <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
-                <MenuIcon style={{ width: "35px", height: "35px" }} />
-              </Button>
-            </SheetTrigger>
-            <SidebarSheetWrapper />
-          </Sheet> */}
           <SidebarSheetWrapper />
         </div>
       </div>

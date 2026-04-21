@@ -18,54 +18,41 @@ interface Product {
 interface ProductItemProps {
   product: Product;
 }
+
 const ProductItem: React.FC<ProductItemProps> = async ({ product }) => {
   const user = await currentUser();
+  const href = user ? `/products/${product.id}` : "/login";
+
   return (
-    <>
-      {user ? (
-        <Link href={`/products/${product.id}`}>
-          <Card className="max-w-[200px] overflow-hidden flex flex-col justify-between">
-            <CardContent className="p-0 flex flex-col justify-between h-full">
-              <div className="relative h-[200px] w-full border-b-2 border-b-amber-300 overflow-hidden">
-                <Image
-                  alt={product.productTitle}
-                  src={product.imageUrl}
-                  fill
-                  className="object-cover rounded-t-xl"
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1 py-3">
-                <p className="text-xs text-center h-[30px]">
-                  {product.productTitle}
-                </p>
-                <p className="font-semibold">R${product.price.toFixed(2)}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-      ) : (
-        <Link href="/login">
-          <Card className="max-w-[200px] overflow-hidden flex flex-col justify-between">
-            <CardContent className="p-0 flex flex-col justify-between h-full">
-              <div className="relative h-[200px] w-full border-b-2 border-b-amber-300 overflow-hidden">
-                <Image
-                  alt={product.productTitle}
-                  src={product.imageUrl}
-                  fill
-                  className="object-cover rounded-t-xl"
-                />
-              </div>
-              <div className="flex flex-col items-center gap-1 py-3">
-                <p className="text-xs text-center h-[30px]">
-                  {product.productTitle}
-                </p>
-                <p className="font-semibold">R${product.price.toFixed(2)}</p>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-      )}
-    </>
+    <Link href={href} className="group block h-full outline-none">
+      <Card className="flex h-full flex-col overflow-hidden border-none shadow-sm transition-all duration-300 hover:ring-2 hover:ring-gray-200">
+        <CardContent className="flex h-full flex-col p-0">
+          <div className="relative aspect-square w-full bg-zinc-50">
+            <Image
+              alt={product.productTitle}
+              src={product.imageUrl}
+              fill
+              className="object-contain p-4 transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+
+          <div className="flex flex-1 flex-col items-center justify-between gap-2 bg-white p-4">
+            <div className="space-y-1 text-center">
+              <p className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">
+                {product.team}
+              </p>
+              <p className="line-clamp-2 text-xs font-semibold text-zinc-900 md:text-sm">
+                {product.productTitle}
+              </p>
+            </div>
+
+            <p className="text-sm font-black text-zinc-900 md:text-lg">
+              R${product.price.toFixed(2)}
+            </p>
+          </div>
+        </CardContent>
+      </Card>
+    </Link>
   );
 };
 
