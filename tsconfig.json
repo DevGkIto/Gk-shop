@@ -20,8 +20,8 @@
     ],
     "baseUrl": ".",
     "paths": {
-      "@/lib/*": ["app/_lib/*"], // Adjusted path to point to app/_lib
-      "@/components/*": ["app/_components/*"] // This remains as is
+      "@/lib/*": ["app/_lib/*"],
+      "@/components/*": ["app/_components/*"]
     }
   },
   "include": [

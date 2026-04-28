@@ -13,8 +13,8 @@ const LoginPage = async () => {
   }
   return (
     <Card className="m-4">
-      <CardContent className="bg-[#9F3434] rounded-lg p-0">
-        <div className="mx-auto flex max-w-[550px] flex-col justify-center py-10 items-center">
+      <CardContent className="rounded-lg bg-zinc-900 p-0">
+        <div className="mx-auto flex max-w-[550px] flex-col items-center justify-center py-10">
           <div className="relative">
             <Image
               src="/GKlogo.svg"
@@ -25,13 +25,13 @@ const LoginPage = async () => {
             />
           </div>
           <div className="p-4">
-            <h1 className="mb-3 text-white text-4xl font-bold text-center">
+            <h1 className="mb-3 text-center text-4xl font-bold text-white">
               Bem-vindo
             </h1>
             <p className="mb-8 text-white">
-              Bem-vindo à Gk shop, aqui você encontra diversas camisas de
-              futebol do esporte que você ama! Há a opção de filtrar por liga e
-              por time ao cliclar no icone do menu. Espero que goste! S2
+              Bem-vindo a Gk store, faça o login ou crie sua conta para
+              adicionar ao carrinho. Aqui você encontra as camisas das
+              principais ligas do mundo!
             </p>
           </div>
           <SignInButton>

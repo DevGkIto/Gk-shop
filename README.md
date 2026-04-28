@@ -1,8 +1,8 @@
-# GK Shop - Football Shirt E-commerce
+# GK Store - Football Shirt E-commerce
 
-Welcome to the **GK Shop** – a Mobile designed football shirt e-commerce application. Built with **Next.js**, **React**, **TypeScript (TSX)**, and **PostgreSQL** for the database, with **Tailwind CSS** for styling.
+Welcome to the **GK Store** – a Mobile designed football shirt e-commerce application. Built with **Next.js**, **React**, **TypeScript (TSX)**, and **PostgreSQL** for the database, with **Tailwind CSS** for styling.
 
-## Access the Application
+## Access the Applicationbg-zinc-900
 
 You can check out the live application [here](https://gkstore.vercel.app).
 

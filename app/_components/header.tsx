@@ -37,8 +37,7 @@ const Header = async () => {
 
   return (
     <>
-      {/* Changed bg-[#9F3434] to bg-zinc-900 */}
-      <div className="flex h-[71px] items-center justify-between bg-zinc-900 px-4">
+      <div className="sticky top-0 z-50 flex h-[71px] items-center justify-between bg-zinc-900 px-4">
         <div>
           <Link href="/">
             <Image alt="GK" src="/GKlogo.svg" width={60} height={60} />
@@ -54,7 +53,6 @@ const Header = async () => {
             <Link href={`/cart/${orderId}`}>
               <Button variant="ghost" size="icon" asChild>
                 <div className="relative">
-                  {/* Added text-white to the icon */}
                   <ShoppingBag
                     strokeWidth={1.2}
                     className="text-white"
